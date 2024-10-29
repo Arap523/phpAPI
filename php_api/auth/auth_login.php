@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
 
-    // Ambil data pengguna dari database
+
     $stmt = $conn->prepare("SELECT password FROM users WHERE username = :username");
     $stmt->bindParam(':username', $username);
     $stmt->execute();
