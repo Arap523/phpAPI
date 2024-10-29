@@ -13,10 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Password harus memiliki minimal 8 karakter dan mencakup huruf, angka, dan simbol.");
     }
 
-    // Buat hash dengan salt untuk kata sandi
+    
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-    // Simpan ke database
+ 
     $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':password', $hashedPassword);
